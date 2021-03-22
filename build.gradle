@@ -1,0 +1,12 @@
+buildscript {
+    repositories {
+        // Oddly enough the build fails if we don't declare this here
+        jcenter()
+    }
+}
+
+allprojects {
+    apply plugin: 'java'
+}
+
+apply(from: 'spotless.gradle')

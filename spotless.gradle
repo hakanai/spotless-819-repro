@@ -1,0 +1,25 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath 'com.diffplug.spotless:spotless-plugin-gradle:5.11.0'
+    }
+}
+
+// Because we put the configuration in a separate file to the main build,
+// we have to apply the plugin using the classname instead of the ID.
+apply plugin: com.diffplug.gradle.spotless.SpotlessPlugin
+
+spotless {
+    // TODO: We want to use this too, but some other bug related to git worktrees prevents it
+    // ratchetFrom 'origin/master'
+
+    java {
+        importOrder('java', 'javax', '', 'com.acme')
+        removeUnusedImports()
+        trimTrailingWhitespace()
+
+        // To set up next: prettier()
+    }
+}

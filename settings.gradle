@@ -1,0 +1,3 @@
+rootProject.name = "spotless-819-repro"
+include(":a")
+include(":b")
